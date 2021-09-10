@@ -1,0 +1,35 @@
+<div class="container text-center mt-5">
+  Weather Forecast
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="col-sm-12 text-center">
+
+        <!-- <form class="row g-2 mt-3"> -->
+          <div class="col-auto">
+            <input type="tex" class="form-control" placeholder="Enter city name" #userInput>
+            <!-- <input type="tex" class="form-control" placeholder="Enter city name" [(ngModel)]="userInput"> -->
+
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary m-3" (click)="getCity(userInput.value)">Search</button>
+            <!-- <button class="btn btn-primary m-3" (click)="getCity()">Search</button> -->
+
+          </div>
+        <!-- </form> -->
+
+        <h5 class="mt-2">Current weather and forecast in the city...</h5>
+        <h2>Weather in {{city?.name}}, {{city?.sys?.country}} </h2>
+      </div>
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Temperature</td><td>{{city?.main?.temp - 273 | number: '1.0-0'}} ℃</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
