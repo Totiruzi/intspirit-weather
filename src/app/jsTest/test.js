@@ -29,25 +29,30 @@ function longestZeros(str) {
 // "0"‌ ‌
 // ];‌
 
-function alternate0and1(arr, size)
-{
-    let type0 = 0;
-    let type1 = size - 1;
-     
-    while (type0 < type1)
-    {
-        if (arr[type0] == 1)
-        {
-             
-            // Swap
-            arr[type1] = arr[type1] + arr[type0];
-            arr[type0] = arr[type1] - arr[type0];
-            arr[type1] = arr[type1] - arr[type0];
-            type1--;
-        }
-        else
-            type0++;
+function alternate0and1(arr, size) {
+  
+  /* Initialize left and right indexes */
+  let left = 0, right = size-1;
+ 
+  while (left < right) {
+    /* Increment left index while we see 0 at left */
+    while (arr[left] == 0 && left < right)
+        left++;
+
+    /* Decrement right index while we see 1 at right */
+    while (arr[right] == 1 && left < right)
+        right--;
+
+    /* If left is smaller than right then there is a 1 at left
+    and a 0 at right. Exchange arr[left] and arr[right]*/
+    if (left < right) {
+        arr[left] = 0;
+        arr[right] = 1;
+        left++;
+        right--;
     }
+  }
+  
 }
 
 
